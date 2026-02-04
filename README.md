@@ -13,6 +13,7 @@ A diferencia del cifrado César, que aplica un desplazamiento fijo a todas las l
 El objetivo es crear un cifrado sencillo de implementar pero más complejo y menos predecible que los cifrados clásicos de sustitución.
 
 Descripción del algoritmo
+
 El algoritmo aplica una suma o resta al valor ASCII de cada carácter dependiendo de si su posición es par o impar.
 
 Reglas del cifrado
@@ -36,8 +37,11 @@ El proceso inverso:
 De esta forma, el mensaje vuelve a su estado original.
 
 Ejemplo de funcionamiento
+
 Mensaje original
+
 HELLO
+
 Clave
 3
 Proceso de cifrado
@@ -48,68 +52,15 @@ Proceso de cifrado
 3 (impar)	L	76	-3	73	I
 4 (par)	O	79	+3	82	R
 Resultado cifrado
+
 KBOIR
+
 Descifrado
+
 HELLO
-Código fuente
-java
-package org.example;
 
-public class AlternatingAsciiCipher {
-
-    public static String cifrar(String mensaje, int clave) {
-        StringBuilder resultado = new StringBuilder();
-
-        for (int i = 0; i < mensaje.length(); i++) {
-            char c = mensaje.charAt(i);
-            int ascii = (int) c;
-
-            if (i % 2 == 0) {
-                // Posición par → sumar clave
-                ascii += clave;
-            } else {
-                // Posición impar → restar clave
-                ascii -= clave;
-            }
-
-            resultado.append((char) ascii);
-        }
-
-        return resultado.toString();
-    }
-
-    public static String descifrar(String mensajeCifrado, int clave) {
-        StringBuilder resultado = new StringBuilder();
-
-        for (int i = 0; i < mensajeCifrado.length(); i++) {
-            char c = mensajeCifrado.charAt(i);
-            int ascii = (int) c;
-
-            if (i % 2 == 0) {
-                // Posición par → restar clave
-                ascii -= clave;
-            } else {
-                // Posición impar → sumar clave
-                ascii += clave;
-            }
-
-            resultado.append((char) ascii);
-        }
-
-        return resultado.toString();
-    }
-
-    public static void main(String[] args) {
-        String mensajeOriginal = "HELLO";
-        int clave = 3;
-
-        String cifrado = cifrar(mensajeOriginal, clave);
-        System.out.println("Mensaje cifrado: " + cifrado);
-
-        String descifrado = descifrar(cifrado, clave);
-        System.out.println("Mensaje descifrado: " + descifrado);
-    }
-}
 Resultado de la prueba
+
 Mensaje cifrado: KBOIR
+
 Mensaje descifrado: HELLO
