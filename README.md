@@ -1,5 +1,12 @@
+
+
+
+
 Cifrado ASCII con Suma/Resta Alternada
+
 Introducción
+
+
 Este proyecto implementa un algoritmo de cifrado propio basado en la manipulación de valores ASCII.
 A diferencia del cifrado César, que aplica un desplazamiento fijo a todas las letras, este método utiliza un sistema alternado que modifica cada carácter según su posición dentro del mensaje.
 
