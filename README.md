@@ -43,14 +43,30 @@ Mensaje original
 HELLO
 
 Clave
+
 3
+
 Proceso de cifrado
-Índice	Carácter	ASCII	Operación	Resultado ASCII	Nuevo carácter
-0 (par)	H	72	+3	75	K
-1 (impar)	E	69	-3	66	B
-2 (par)	L	76	+3	79	O
-3 (impar)	L	76	-3	73	I
-4 (par)	O	79	+3	82	R
+
+Para cifrar el mensaje, el algoritmo recorre cada carácter uno por uno y aplica una operación distinta dependiendo de la posición en la que se encuentre dentro del texto.
+
+Se toma el primer carácter del mensaje (posición 0).
+Como es una posición par, se convierte el carácter a su valor ASCII y se le suma la clave.
+El número resultante se vuelve a convertir en un carácter, que será el primer carácter cifrado.
+
+Se toma el segundo carácter (posición 1).
+Esta vez la posición es impar, así que se convierte a ASCII y se le resta la clave.
+El resultado se convierte de nuevo en un carácter cifrado.
+
+Se continúa con el tercer carácter (posición 2).
+Al ser una posición par, se repite el proceso de sumar la clave al valor ASCII.
+
+El cuarto carácter (posición 3) vuelve a ser impar, por lo que se resta la clave.
+
+El proceso continúa alternando entre sumar y restar la clave según la posición del carácter hasta completar todo el mensaje.
+
+Al final, todos los caracteres transformados se unen para formar el mensaje cifrado.
+
 Resultado cifrado
 
 KBOIR
